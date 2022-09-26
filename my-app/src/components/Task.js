@@ -7,7 +7,20 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip'
 
+const switchColor = (priority) => {
+  switch(priority) {
+    case "Low":
+      return "success"
+    case "Medium" : 
+      return "warning"
+    case "High":
+      return "error"
+    default:
+      return "success"
+  }
+}
 const Task = (props) => {
     return (
     <Grid
@@ -43,12 +56,14 @@ const Task = (props) => {
                   Due: {props.deadline}
               </Typography>
               </Box>
+              <Chip label={props.priority} color={switchColor(props.priority)} />
               <Typography
                   component="p"
                   variant="subtitle1"
                   align="center"
                   sx={{ fontStyle: 'italic'}}
               >
+                
                   {props.description}
               </Typography>
           </CardContent>

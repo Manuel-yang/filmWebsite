@@ -30,7 +30,6 @@ function App() {
 
   const formChangeHandler = (event) => {
     let form = {...formState};
-    console.log(event.target.name)
     switch(event.target.name) {
       case "title":
           form.title = event.target.value;
